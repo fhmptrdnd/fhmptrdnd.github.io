@@ -1,0 +1,145 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Product</title>
+    <link rel="stylesheet" href="transaksi.css">
+    <link rel="shortcut icon" href="img2/soda_can_beverage_drink.png">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="main.js" defer></script>
+</head>
+
+<body>
+    <div class="banner">
+        <span><a href="main.html"><img src="img2/Neceeta-logo.png" alt="logo"></a></span>
+
+        <div class="mainContainer">
+            <div class="display">
+                <div class="product-container">
+                    <div class="produk" style="--url: url(img2/neceeta_can_lemonFix.png)">
+                        <div class="soda"></div>
+                    </div>
+                    
+                    <div class="produk" style="--url: url(img2/neceeta_can_anggur.png)">
+                        <div class="soda"></div>
+                    </div>
+                    <div class="produk" style="--url: url(img2/neceeta_can_apple.png)">
+                        <div class="soda"></div>
+                    </div>
+                    <div class="produk" style="--url: url(img2/neceeta_can_strawberry.png)">
+                        <div class="soda"></div>
+                    </div>
+                    <div class="produk" style="--url: url(img2/neceeta_can_guavanata.png)">
+                        <div class="soda"></div>
+                    </div>
+                </div>
+                <button class="nav prev">❮</button>
+                <button class="nav next">❯</button>
+            </div>
+            <div class="form-container">
+                <h2>Pesanan Pembelian</h2>
+                <div class="product">
+                    <label><input type="checkbox" class="product-checkbox" data-price="7000"> Variant Lemon </label>
+                    <span>7.000</span>
+                    <input type="number" class="product-quantity" min="1" value="0" disabled>
+                </div>
+                <div class="product">
+                    <label><input type="checkbox" class="product-checkbox" data-price="8000"> Variant Anggur </label>
+                    <span>8.000</span>
+                    <input type="number" class="product-quantity" min="1" value="0" disabled>
+                </div>
+                <div class="product">
+                    <label><input type="checkbox" class="product-checkbox" data-price="7500"> Variant Apel </label>
+                    <span>7.500</span>
+                    <input type="number" class="product-quantity" min="1" value="0" disabled>
+                </div>
+                <div class="product">
+                    <label><input type="checkbox" class="product-checkbox" data-price="8000"> Variant Stroberi </label>
+                    <span>8.000</span>
+                    <input type="number" class="product-quantity" min="1" value="0" disabled>
+                </div>
+                <div class="product">
+                    <label><input type="checkbox" class="product-checkbox" data-price="8500"> Variant Guava Nata de coco </label>
+                    <span>8.500</span>
+                    <input type="number" class="product-quantity" min="1" value="0" disabled>
+                </div>
+                <div class="total">Total: <span id="total-price">0</span></div>
+            
+                <form id="order-form" action="#" method="POST">
+                    <div>
+                        <input type="text" name="firstName" placeholder="Nama Depan" required>
+                        <input type="text" name="lastName" placeholder="Nama Belakang" required>
+                    </div>
+                    <input type="email" name="email" placeholder="Email Anda" class="full-width" required>
+                    <input type="text" name="address" placeholder="Alamat Pengiriman" class="full-width" required>
+                    <input type="text" name="city" placeholder="Kabupaten/Kota" required>
+                    <input type="text" name="province" placeholder="Provinsi" required>
+                    <input type="text" name="postalCode" placeholder="Kode Pos" class="full-width" required>
+                    <input type="hidden" name="totalPrice" id="totalPrice" value="0">
+                    <button type="submit" class="button">Kirim</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update total price based on selected products and their quantities
+        document.querySelectorAll('.product-checkbox').forEach((checkbox, index) => {
+            const quantityInput = document.querySelectorAll('.product-quantity')[index];
+    
+            checkbox.addEventListener('change', () => {
+                quantityInput.disabled = !checkbox.checked;
+                quantityInput.value = checkbox.checked ? 1 : 0;
+                updateTotal();
+            });
+    
+            quantityInput.addEventListener('input', updateTotal);
+        });
+    
+        function updateTotal() {
+            let total = 0;
+            document.querySelectorAll('.product-checkbox').forEach((checkbox, index) => {
+                if (checkbox.checked) {
+                    const price = parseFloat(checkbox.getAttribute('data-price'));
+                    const quantity = parseInt(document.querySelectorAll('.product-quantity')[index].value) || 0;
+                    total += price * quantity;
+                }
+            });
+            document.getElementById('total-price').innerText = total.toLocaleString('id-ID', { minimumFractionDigits: 0 });
+            document.getElementById('totalPrice').value = total;
+        }
+    </script>
+    <script>
+        const slider = document.querySelector('.product-container');
+        const slides = document.querySelectorAll('.produk');
+        const prevButton = document.querySelector('.prev');
+        const nextButton = document.querySelector('.next');
+
+        let currentIndex = 0;
+
+        // Fungsi untuk mengupdate posisi slider
+        function updateSlider() {
+            const slideWidth = slides[0].clientWidth;
+            slider.style.transform = `translateX(${-slideWidth * currentIndex}px)`;
+        }
+
+        // Event listener untuk tombol next
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0; // Loop kembali ke awal
+            }
+            updateSlider();
+        });
+
+        // Event listener untuk tombol prev
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = slides.length - 1; // Loop ke slide terakhir
+            }
+            updateSlider();
+        });
+    </script>
+</body>

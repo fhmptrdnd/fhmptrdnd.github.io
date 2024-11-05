@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Menu</title>
+    <link rel="stylesheet" href="mainStyle.css">
+    <script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
+</head>
+<body class="mainBackground">
+    <div class="guavanata"></div>
+    <div class="firstContent">
+        <div class="mainContainer">
+            <div class="secondaryContainer">
+                <div class="upper">
+                    <div class="upperLeft">
+                        <span><img src="img2/Neceeta-logo.png" alt="logo"></span>
+                    </div>
+                    <div class="upperRight">
+                        <div class="navMenu"><a href="main.html" class="navMenu">Home</a></div>
+                        <!-- <div class="navMenu"><a href="#" class="navMenu">Menu</a></div> -->
+                        <div class="navMenu"><a href="index2.html" class="navMenu">Our Product</a></div>
+                        <div class="navMenu"><a href="https://wa.me/qr/RTFC2AHNQW7HL1" target="_blank" class="navMenu">Contact Us</a></div>
+                    </div>
+                </div>
+                <div class="mid">
+                    <div class="midLeft">
+                        <div class="midContent sanskertaIndo">Neceeta</div>
+                        <div class="midContent sanskerta">"निसिता"</div>
+                        <div class="midContent garisWavy">
+                            <svg width="100" height="10">
+                                <path d="M0 5 Q 3.5 0, 7 5 T 14 5 T 21 5 T 28 5 T 35 5 T 42 5 T 49 5 T 56 5 T 63 5 T 70 5 T 77 5 T 84 5" stroke="black" fill="transparent" stroke-width="2" />
+                            </svg>                                                        
+                        </div>
+                        <div class="midContent mainParagraph">A CAN FROM US<br>WHO CARE ABOUT<br>YOUR HEALTH</div>
+                        <div class="midContent secondaryParagraph">Neceeta (Nisita) adalah produk minuman rendah kalori yang mengandung daun stevia sebagai pemanis untuk mengurangi 
+                            penggunaan gula, dan juga dilengkapi dengan rasa buah yang mengandung banyak vitamin untuk kesehatan tubuh. Neceeta diambil dari Bahasa Sanskerta yaitu 
+                            Nisita yang berarti tajam, pandai, dan cerdas. Hal ini adalah output yang diharapkan dapat diperoleh oleh konsumen kami setelah mengonsumsi produk kami.</div>
+                        <div class="midContent buttonBuyNow">
+                            <div class="button-wrapper">
+                                <a href="transaksi.html">Beli Sekarang</a>
+                                <div class="button-background"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="midRight">
+                        <div class="product" style="--url: url(img2/neceeta_can_lemonFix.png)">
+                            <div class="soda"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="secondContent">
+        <div class="second-top"><span>Our New Product.</span></div>
+        <div class="second-title"><span class="titleNewProduct">Guavanata</span></div>
+        <div class="second-product">
+            <div 
+                class="typing-effect" 
+                data-text="Kenalkan, Guavanata, minuman segar inovatif yang memadukan rasa jambu yang alami dan segarnya nata de coco! Guavanata tidak hanya hadir untuk menghilangkan dahaga, tetapi juga memberikan manfaat kesehatan dengan kandungan antioksidan yang membantu melawan radikal bebas. Diperkuat dengan berbagai vitamin penting, Guavanata dirancang untuk menjadi minuman yang menyehatkan tanpa meninggalkan kenikmatan rasa. Rasa jambu yang unik dan segar ini dipadu dengan tekstur kenyal nata de coco, memberikan pengalaman minum yang menyenangkan dan tidak pernah membosankan."
+                data-fade-duration="500"
+                data-type-speed="3"
+                data-erase-speed="50">
+            </div>
+            <div class="theProduct">
+                <div class="product" style="--url: url(img2/neceeta_can_guavanata.png)">
+                    <div class="soda"></div>
+                </div>
+            </div>
+            <div 
+                class="typing-effect newProductRight" 
+                data-text="Selain itu, Guavanata memiliki keunggulan rendah gula, karena dibuat dengan tambahan daun stevia, pemanis alami yang menjaga kalori tetap rendah. Jadi, Anda bisa menikmati manisnya Guavanata tanpa rasa bersalah. Cocok untuk siapa saja yang peduli akan kesehatan namun tetap ingin menikmati minuman yang lezat dan menyegarkan. Nikmati setiap teguk Guavanata, teman sempurna untuk aktivitas sehari-hari Anda!"
+                data-fade-duration="500"
+                data-type-speed="6"
+                data-erase-speed="50">
+            </div>
+        </div>
+    </div>
+    <div class="thirdContent">
+        <div class="quizMainContainer">
+            <div class="quizContainer">
+                <div id="quiz">
+                    <h1>Neceeta Quiz</h1>
+                    <h4 class="quizReward">Answer all the questions correctly and get your reward!</h4>
+                    <div id="quiz-start">
+                        <button class="buttonRestart" onclick="startQuiz()">Start Quiz</button>
+                    </div>
+                    <div id="quiz-questions" style="display: none;">
+                        <h2 id="question"></h2>
+                        <div id="choices"></div>
+                        <div id="quiz-info">
+                            <p>Question: <span id="current-question">0</span>/<span id="total-questions">0</span></p>
+                            <p>Score: <span id="score">0</span></p>
+                        </div>
+                    </div>
+                    <div id="quiz-results" style="display: none;">
+                        <h2>Quiz Complete!</h2>
+                        <p>Your final score: <span id="final-score">0</span></p>
+                        <div id="qrcode-container" style="display: none;">
+                            <h3>Congratulations! Here's your reward QR code:</h3>
+                            <div id="qrcode"></div>
+                            <h3>Don't forget to use it when buying our product to get 5% discount!!</h3>
+                        </div>
+                        <button class="buttonRestart" onclick="restartQuiz()">Play Again</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("scroll", function () {
+            const targetElement = document.querySelector(".secondContent");
+            const changeElement = document.querySelector(".mainBackground");
+            const guavanataElement = document.querySelector(".guavanata");
+            const newProductElement = document.querySelector(".titleNewProduct");
+            const rect = targetElement.getBoundingClientRect();
+
+            if (
+                rect.top < window.innerHeight / 2 &&
+                rect.bottom > window.innerHeight / 2
+            ) {
+                changeElement.classList.add("colorChange");
+                guavanataElement.classList.add("visible");
+            } else {
+                changeElement.classList.remove("colorChange");
+                guavanataElement.classList.remove("visible");
+            }
+
+            if (
+                rect.top < window.innerHeight / 4 &&
+                rect.bottom > window.innerHeight / 4
+            ) {
+                newProductElement.classList.add("glow");
+            } else {
+                newProductElement.classList.remove("glow");
+            }
+        });
+    </script>
+    <script>
+        const TypingEffectManager = (() => {
+        const style = document.createElement('style');
+        style.textContent = `
+            .typing-effect {
+                opacity: 0;
+                transition: opacity 500ms ease-out;
+            }
+        `;
+        document.head.appendChild(style);
+
+        function isInViewport(element) {
+            const rect = element.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        function debounce(func, wait) {
+            let timeout;
+            return function executedFunction(...args) {
+                const later = () => {
+                    clearTimeout(timeout);
+                    func(...args);
+                };
+                clearTimeout(timeout);
+                timeout = setTimeout(later, wait);
+            };
+        }
+
+        class TypingEffect {
+            constructor(element, text, typeSpeed = 100, eraseSpeed = 50, fadeOutDuration = 500) {
+                this.element = element;
+                this.text = text;
+                this.typeSpeed = typeSpeed;
+                this.eraseSpeed = eraseSpeed;
+                this.fadeOutDuration = fadeOutDuration;
+                this.isTyping = false;
+                this.isErasing = false;
+                this.textIndex = 0;
+                this.timeout = null;
+                this.element.style.transition = `opacity ${this.fadeOutDuration}ms ease-out`;
+            }
+
+            type() {
+                if (this.textIndex < this.text.length) {
+                    this.element.textContent += this.text.charAt(this.textIndex);
+                    this.textIndex++;
+                    this.isTyping = true;
+                    this.timeout = setTimeout(() => this.type(), this.typeSpeed);
+                } else {
+                    this.isTyping = false;
+                }
+            }
+
+            erase() {
+                if (this.textIndex > 0) {
+                    this.element.textContent = this.text.substring(0, this.textIndex - 1);
+                    this.textIndex--;
+                    this.isErasing = true;
+                    this.timeout = setTimeout(() => this.erase(), this.eraseSpeed);
+                } else {
+                    this.isErasing = false;
+                }
+            }
+
+            start() {
+                if (!this.isTyping && !this.isErasing) {
+                    this.element.style.opacity = '1';
+                    this.type();
+                }
+            }
+
+            stop() {
+                clearTimeout(this.timeout);
+                this.isTyping = false;
+                this.isErasing = false;
+                this.erase();
+            }
+
+            reset() {
+                clearTimeout(this.timeout);
+                this.element.style.opacity = '0';
+                setTimeout(() => {
+                    this.isTyping = false;
+                    this.isErasing = false;
+                    this.textIndex = 0;
+                    this.element.textContent = '';
+                }, this.fadeOutDuration);
+            }
+        }
+
+        const typingEffects = [];
+        
+        function init() {
+            document.querySelectorAll('.typing-effect').forEach(element => {
+                const text = element.getAttribute('data-text');
+                const fadeDuration = parseInt(element.getAttribute('data-fade-duration')) || 500;
+                const typeSpeed = parseInt(element.getAttribute('data-type-speed')) || 100;
+                const eraseSpeed = parseInt(element.getAttribute('data-erase-speed')) || 50;
+                
+                typingEffects.push(new TypingEffect(
+                    element, 
+                    text, 
+                    typeSpeed, 
+                    eraseSpeed, 
+                    fadeDuration
+                ));
+            });
+
+            const handleScroll = debounce(() => {
+                typingEffects.forEach(effect => {
+                    if (isInViewport(effect.element)) {
+                        effect.start();
+                    } else {
+                        effect.reset();
+                    }
+                });
+            }, 100);
+
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+        }
+
+        return {
+            init: init
+        };
+    })();
+
+    document.addEventListener('DOMContentLoaded', TypingEffectManager.init);
+    </script>
+    <script>
+    const questions = [
+        {
+            question: "Apa manfaat antioksidan bagi tubuh kita?",
+            choices: ["Membantu melawan radikal bebas yang merusak sel", "Membuat tubuh bisa tidur lebih lama", "Meningkatkan kadar gula darah", "Mengubah tubuh jadi tahan panas", "Membuat kita bisa terbang seperti superhero"],
+            correct: 0
+        },
+        {
+            "question": "Mengapa mengonsumsi minuman rendah gula, seperti Neceeta, penting untuk kesehatan?",
+            "choices": ["Membantu mengurangi risiko diabetes", "Membuat kita kebal terhadap semua penyakit", "Membuat rasa lapar hilang selamanya", "Menjadikan kita berlari lebih cepat dari Usain Bolt", "Agar kita tidak perlu makan sayur lagi"],
+            "correct": 0
+        },
+        {
+            "question": "Mengapa penting untuk minum cukup cairan setiap hari?",
+            "choices": ["Untuk menjaga fungsi organ tubuh dan hidrasi", "Agar tubuh bisa menghasilkan es batu", "Supaya bisa tidur lebih lama", "Agar tidak merasa lapar lagi", "Supaya kulit bisa berkilau seperti kaca"],
+            "correct": 0
+        },
+        {
+            "question": "Apa manfaat utama dari mengonsumsi vitamin C secara rutin?",
+            "choices": ["Meningkatkan daya tahan tubuh dan membantu proses penyembuhan luka", "Membuat rambut jadi tahan angin", "Agar tubuh tidak perlu olahraga", "Supaya bisa tidur 24 jam tanpa bangun", "Membuat suara jadi merdu"],
+            "correct": 0
+        },
+        {
+            "question": "Apa fungsi kandungan stevia dalam Neceeta?",
+            "choices": ["Memberikan rasa manis rendah kalori", "Membuat tubuh bisa menghasilkan gula sendiri", "Menambah rasa pedas", "Supaya minumannya jadi rasa kopi", "Supaya bisa tidak makan gula lagi selamanya"],
+            "correct": 0
+        }
+        // Add more questions as needed
+    ];
+
+    let currentQuestion = 0;
+    let score = 0;
+
+    function startQuiz() {
+        document.getElementById('quiz-start').style.display = 'none';
+        document.getElementById('quiz-questions').style.display = 'block';
+        document.getElementById('total-questions').textContent = questions.length;
+        showQuestion();
+    }
+
+    function showQuestion() {
+        const question = questions[currentQuestion];
+        document.getElementById('question').textContent = question.question;
+        document.getElementById('current-question').textContent = currentQuestion + 1;
+        
+        const choicesDiv = document.getElementById('choices');
+        choicesDiv.innerHTML = '';
+        
+        question.choices.forEach((choice, index) => {
+            const button = document.createElement('button');
+            button.className = 'choice';
+            button.textContent = choice;
+            button.onclick = () => checkAnswer(index);
+            choicesDiv.appendChild(button);
+        });
+    }
+
+    function checkAnswer(choiceIndex) {
+        const question = questions[currentQuestion];
+        const choices = document.getElementsByClassName('choice');
+        
+        // Disable all choices
+        Array.from(choices).forEach(choice => {
+            choice.onclick = null;
+        });
+        
+        if (choiceIndex === question.correct) {
+            choices[choiceIndex].classList.add('correct');
+            score++;
+            document.getElementById('score').textContent = score;
+        } else {
+            choices[choiceIndex].classList.add('incorrect');
+            choices[question.correct].classList.add('correct');
+        }
+        
+        setTimeout(() => {
+            currentQuestion++;
+            if (currentQuestion < questions.length) {
+                showQuestion();
+            } else {
+                showResults();
+            }
+        }, 1500);
+    }
+
+    function showResults() {
+        document.getElementById('quiz-questions').style.display = 'none';
+        document.getElementById('quiz-results').style.display = 'block';
+        document.getElementById('final-score').textContent = `${score}/${questions.length}`;
+        
+        if (score === questions.length) {
+            const qrcodeElement = document.getElementById('qrcode');
+            qrcodeElement.innerHTML = ''; // Clear previous QR code if any
+            
+            const randomCode = "WarungBarokahCoder";
+            
+            new QRCode(qrcodeElement, {
+                text: randomCode,
+                width: 128,
+                height: 128,
+                colorDark: "#000000",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+            
+            document.getElementById('qrcode-container').style.display = 'block';
+        }
+    }
+
+    function restartQuiz() {
+        currentQuestion = 0;
+        score = 0;
+        document.getElementById('score').textContent = '0';
+        document.getElementById('quiz-results').style.display = 'none';
+        document.getElementById('quiz-questions').style.display = 'block';
+        document.getElementById('qrcode-container').style.display = 'none';
+        document.getElementById('qrcode').innerHTML = '';
+        showQuestion();
+    }
+
+    function generateQRCode() {
+        const qrcodeContainer = document.getElementById('qrcode-container');
+        qrcodeContainer.style.display = 'block';
+        
+        const qrcodeElement = document.getElementById('qrcode');
+        qrcodeElement.innerHTML = ''; // Clear previous QR code if any
+        
+        const randomCode = generateRandomCode(10);
+        
+        new QRCode(qrcodeElement, {
+            text: randomCode,
+            width: 128,
+            height: 128,
+            colorDark: "#000000",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+
+    function generateRandomCode(length) {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += characters.charAt(Math.floor(Math.random() * characters.length));
+        }
+        return result;
+    }
+    </script>
+</body>
+</html>

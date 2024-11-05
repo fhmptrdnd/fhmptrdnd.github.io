@@ -1,0 +1,248 @@
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(img2/main-background.jpg);
+    /* background-color: #c2cc67f5; */
+    /* background-color: #cde5f8; */
+    /* background-image: url(img2/abstract.png); */
+    background-size: cover;
+    transition: 0.7s;
+    margin: 0;
+}
+
+.banner {
+height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+/* text-align: center; */
+position: relative;
+}
+
+.banner h1 {
+color: azure;
+font-size: 40px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+margin-top: 20px;
+}
+
+/* .banner h2 {
+color: azure;
+font-size: 20px;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+margin-top: 10px;
+} */
+
+.banner span img {
+width: 100px;
+margin: 20px 0;
+}
+
+.mainContainer{
+    display: flex;
+    border-radius: 14px;
+    border: solid 2px white;
+    /* width: 800px; */
+    justify-content: space-between;
+    align-items: center;
+}
+
+.display {
+    position: relative;
+    width: 340px; /* Sesuaikan ukuran */
+    height: 415px;
+    overflow: hidden;
+    transform: translateX(66%);
+    transition: 0.7s;
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.prev {
+    left: 0px;
+}
+
+.next {
+    right: 0px;
+}
+
+.product-container {
+display: flex;
+/* flex-direction: row; */
+flex-wrap: wrap;
+/* justify-content: center; */
+width: 3000px;
+padding-left: 8px;
+/* max-width: 320px; */
+/* overflow: hidden; */
+position: relative;
+transition: transform 0.5s ease;
+}
+
+.produk {
+    width: 320px;
+    height: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: 0.7s;
+    --left: -33px; 
+    margin-bottom: 50px;
+}
+
+.soda {
+background:
+    var(--url) var(--left) 0,
+    url(img2/can_mockup.png);
+background-size: auto 100%;
+width: 200px;
+aspect-ratio: 2 / 4.1;
+background-blend-mode: multiply;
+mask-image: url(img2/can_mockup.png);
+mask-size: auto 100%;
+transition: 0.7s;
+position: absolute;
+/* transform: translateX(110%); */
+
+}
+
+
+.produk:hover {
+--left: -310px; 
+}
+
+/* .produk:hover .soda {
+    transform: translateX(0%);
+} */
+
+/* body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #a1ff4e;
+} */
+
+.form-container {
+    width: 400px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.7s;
+    transform: scaleY(0);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* display: none; */
+}
+
+.mainContainer:hover .display{
+    transform: translateX(0%);
+}
+
+.mainContainer:hover .form-container{
+    opacity: 1;
+    transform: scaleY(1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: black !important;
+}
+.product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0;
+}
+.product label {
+    flex: 1;
+    /* width: 1200px; */
+}
+.product input[type="number"] {
+    width: 60px;
+    margin-left: 10px;
+    z-index: 1;
+}
+.total {
+    font-weight: bold;
+    text-align: right;
+    margin-top: 10px;
+}
+input[type="text"], input[type="email"] {
+    width: calc(50% - 5px);
+    padding: 8px;
+    margin: 5px 0;
+    box-sizing: border-box;
+    z-index: 2;
+}
+.full-width {
+    width: 100%;
+}
+.button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 1280px) {
+    
+}
+
+@media (max-width: 811px) {
+    .mainContainer{
+        flex-direction: column;
+    }
+    .product-container{
+        margin-bottom: 35px;
+    }
+    .display{
+        transform: translateX(0%);
+    }
+}
+
+@media (max-width:480px) {
+    .display {
+        width: 334px;
+        height: 300px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        /* transform: translateX(-10%) !important; */
+    }
+    
+    .soda {
+    width: 150px;
+    }
+
+    .form-container {
+        width: 300px;
+        font-size: 10px;
+    }
+
+    input[type="text"], input[type="email"] {
+        font-size: 10px;
+        width: calc(50% - 5px);
+        padding: 2px;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+}
