@@ -1,315 +1,182 @@
-body{
+body {
     height: 100vh;
+    display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #cde5f8;
-    background-image: url(img2/abstract.png);
-    background-size: cover;
-    transition: 0.7s;
-}
-
-.banner{
-    height: 100vh;
-    overflow: hidden;
+    background-image: url(img2/main-background.jpg);
+    /* background-color: #c2cc67f5; */
     position: relative;
+    margin: 0;
+    /* overflow: hidden; */
 }
 
-.banner h1{
-    color: azure;
-    position: absolute;
-    left: 50%;
-    top: 50px;
-    transform: translateX(-50%);
-    font-size: 40px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-}
-
-.banner h2{
-    color: azure;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 100px;
-    font-size: 20px;
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
-.banner span img{
-    color: azure;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-}
-
-.banner .product{
-    /* background-color: red; */
-    width: 190px;
-    height: 300px;
-    position: absolute;
-    bottom: 100px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 1;
-    transition: 0.7s;
-    display: flex;
-    --left: 0px
-}
-
-.banner .product .soda{
-    background:
-       var(--url) var(--left) 0,
-       url(img2/can_mockup.png);
-    background-size: auto 100%;
-    width: 170px;
-    /* height: 400px; */
-    aspect-ratio: 2 / 4.1;
-    background-blend-mode: multiply;
-    mask-image: url(img2/can_mockup.png);
-    mask-size: auto 100%;
-    transition: 0.7s;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.banner .product .flavour{
-    position: absolute;
+.lemon, .grape, .apple, .strawberry, .guavanata {
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: -1;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.7s ease;
 }
 
-.banner .product:hover{
-    --left: -260px; 
-    transform: translateX(-50%) translateY(-80px) rotate(-10deg);
-}
-
-.banner .product:hover .flavour{
+.lemon.visible, .grape.visible, .apple.visible, .strawberry.visible, .guavanata.visible {
     opacity: 1;
 }
 
-.banner .product-2{
-    /* background-color: red; */
-    width: 190px;
-    height: 300px;
-    position: absolute;
-    bottom: 100px;
-    left: 35%;
-    transform: translateX(-50%);
-    z-index: 1;
-    transition: 0.7s;
-    display: flex;
-    --left: 0px
-}
-
-.banner .product-2 .soda-2{
-    background:
-       var(--url) var(--left) 0,
-       url(img2/can_mockup.png);
-    background-size: auto 100%;
-    width: 170px;
-    /* height: 400px; */
-    aspect-ratio: 2 / 4.1;
-    background-blend-mode: multiply;
-    mask-image: url(img2/can_mockup.png);
-    mask-size: auto 100%;
-    transition: 0.7s;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.banner .product-2 .flavour-2{
+.lemon::before, .grape::before, .apple::before, .strawberry::before, .guavanata::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    background-size: cover;
+    background-position: center;
+    background-blend-mode: multiply;
+    opacity: 0.3;
 }
 
-.banner .product-2:hover{
-    --left: -260px; 
-    transform: translateX(-50%) translateY(-80px) rotate(-10deg);
+.lemon::before{
+    background-image: url(img2/bg-lemon.png);
 }
 
-.banner .product-2:hover .flavour-2{
-    opacity: 1;
+.grape::before {
+    background-image: url(img2/grape-bg.png);
 }
 
-.banner .product-3{
-    /* background-color: red; */
+.apple::before {
+    background-image: url(img2/apple-bg.png);
+}
+
+.strawberry::before{
+    background-image: url(img2/strawberry-bg.png);
+}
+.guavanata::before{
+    background-image: url(img2/guavanata-bg.png);
+}
+
+.banner, .product-container {
+    position: relative;
+    z-index: 1;
+}
+
+.banner {
+height: 100vh;
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+position: relative;
+}
+
+.banner h1 {
+color: azure;
+font-size: 40px;
+font-family: Verdana, Geneva, Tahoma, sans-serif;
+margin-top: 20px;
+}
+
+.banner h2 {
+color: azure;
+font-size: 15px;
+font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+margin-top: 10px;
+margin-bottom: 50px;
+}
+
+.banner span img {
+width: 200px;
+margin: 20px 0;
+}
+
+.product-container {
+display: flex;
+flex-wrap: wrap;
+gap: 40px;
+justify-content: center;
+padding: 20px;
+max-width: 1000px;
+}
+
+.product {
     width: 190px;
     height: 300px;
-    position: absolute;
-    bottom: 100px;
-    left: 65%;
-    transform: translateX(-50%);
-    z-index: 1;
-    transition: 0.7s;
     display: flex;
-    --left: 0px
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    transition: 0.7s;
+    --left: -33px; 
+    margin-bottom: 100px;
 }
 
-.banner .product-3 .soda-3{
-    background:
-       var(--url) var(--left) 0,
-       url(img2/can_mockup.png);
-    background-size: auto 100%;
-    width: 170px;
-    /* height: 400px; */
-    aspect-ratio: 2 / 4.1;
-    background-blend-mode: multiply;
-    mask-image: url(img2/can_mockup.png);
-    mask-size: auto 100%;
-    transition: 0.7s;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.soda {
+background:
+    var(--url) var(--left) 0,
+    url(img2/can_mockup.png);
+background-size: auto 100%;
+width: 170px;
+aspect-ratio: 2 / 4.1;
+background-blend-mode: multiply;
+mask-image: url(img2/can_mockup.png);
+mask-size: auto 100%;
+transition: 0.7s;
+position: relative;
 }
 
-.banner .product-3 .flavour-3{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    color: white;
+.flavour {
+position: absolute;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+color: white;
+text-align: center;
+opacity: 0;
+transition: 0.7s;
+/* transition: opacity 0.3s ease; */
+/* pointer-events: none;  */
+}
+
+.flavour a{
     display: flex;
-    text-align: center;
+    /* text-decoration: none; */
     align-items: center;
     justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    border: 2px solid #ff0000;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width: 120px;
+    height: 30px;
+    border-radius: 10px;
+    color: rgb(240, 232, 232);
+    transition: 1s;
+    text-decoration: none;
 }
 
-.banner .product-3:hover{
-    --left: -260px; 
-    transform: translateX(-50%) translateY(-80px) rotate(-10deg);
+.product:hover .buyNow{
+    background-color: rgba(255, 0, 0, 1);
 }
 
-.banner .product-3:hover .flavour-3{
-    opacity: 1;
+.buyNow:hover{
+    background-color: #bb0000 !important;
+    transition: 0.5s;
 }
 
-.banner .product-4{
-    /* background-color: red; */
-    width: 190px;
-    height: 300px;
-    position: absolute;
-    bottom: 100px;
-    left: 80%;
-    transform: translateX(-50%);
-    z-index: 1;
-    transition: 0.7s;
-    display: flex;
-    --left: 0px
+.product:hover {
+--left: -260px; 
 }
 
-.banner .product-4 .soda-4{
-    background:
-       var(--url) var(--left) 0,
-       url(img2/can_mockup.png);
-    background-size: auto 100%;
-    width: 170px;
-    /* height: 400px; */
-    aspect-ratio: 2 / 4.1;
-    background-blend-mode: multiply;
-    mask-image: url(img2/can_mockup.png);
-    mask-size: auto 100%;
-    transition: 0.7s;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
+.product:hover .soda {
+    transform: translateX(-10%) translateY(-80px) rotate(-10deg);
+    opacity: 0.5;
 }
 
-.banner .product-4 .flavour-4{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.banner .product-4:hover{
-    --left: -260px; 
-    transform: translateX(-50%) translateY(-80px) rotate(-10deg);
-}
-
-.banner .product-4:hover .flavour-4{
-    opacity: 1;
-}
-
-.banner .product-5{
-    /* background-color: red; */
-    width: 190px;
-    height: 300px;
-    position: absolute;
-    bottom: 100px;
-    left: 20%;
-    transform: translateX(-50%);
-    z-index: 1;
-    transition: 0.7s;
-    display: flex;
-    --left: 0px
-}
-
-.banner .product-5 .soda-5{
-    background:
-       var(--url) var(--left) 0,
-       url(img2/can_mockup.png);
-    background-size: auto 100%;
-    width: 170px;
-    /* height: 400px; */
-    aspect-ratio: 2 / 4.1;
-    background-blend-mode: multiply;
-    mask-image: url(img2/can_mockup.png);
-    mask-size: auto 100%;
-    transition: 0.7s;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.banner .product-5 .flavour-5{
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    color: white;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.banner .product-5:hover{
-    --left: -260px; 
-    transform: translateX(-50%) translateY(-80px) rotate(-10deg);
-}
-
-.banner .product-5:hover .flavour-5{
+.product:hover .flavour {
+    transform: translateX(-10%) translateY(-80px) rotate(-10deg);
     opacity: 1;
 }
